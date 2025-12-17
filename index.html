@@ -27,6 +27,7 @@
     /* HERO */
     .hero {
       position: relative;
+      z-index: 1;
       background: url("IMG_0750.jpeg") center/cover no-repeat;
       min-height: 48vh;
       display: flex;
@@ -75,6 +76,8 @@
 
     /* CONTENT CARD */
     main {
+      position: relative;
+      z-index: 2; /* zorg dat tekstblok vóór de hero/overlay ligt */
       width: min(920px, calc(100% - 32px));
       margin: -58px auto 0;
       background: var(--card);

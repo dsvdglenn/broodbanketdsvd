@@ -11,95 +11,108 @@
       --accent: #d9a441;
       --dark: #2f2f2f;
       --light: #f6f4f1;
+      --card: #ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background-color: var(--light);
+      font-family: Georgia, serif;
+      background: var(--light);
       color: var(--dark);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
+    /* HERO */
     .hero {
       position: relative;
       background: url("IMG_0750.jpeg") center/cover no-repeat;
-      min-height: 55vh;
+      min-height: 48vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
+      padding: 28px 18px 34px;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.45);
+      /* iets zachter + subtiele gradient voor leesbaarheid */
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.55) 70%,
+        rgba(0,0,0,0.60) 100%
+      );
     }
 
     .hero-content {
       position: relative;
-      text-align: center;
-      color: #fff;
-      padding: 20px;
+      width: min(920px, 100%);
+      display: flex;
+      justify-content: center;
     }
 
-    .hero-content img {
-      max-width: 260px;
-      margin-bottom: 20px;
+    /* Logo netjes en consistent */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      border: 2px solid rgba(217,164,65,0.55);
     }
 
-    .hero-content h1 {
-      font-size: 2.4rem;
-      margin: 0;
-      font-weight: normal;
+    .brand img {
+      display: block;
+      width: min(520px, 92vw);
+      height: auto;
     }
 
+    /* CONTENT CARD */
     main {
-      max-width: 800px;
-      margin: -80px auto 0 auto;
-      background: #fff;
-      padding: 50px 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      width: min(920px, calc(100% - 32px));
+      margin: -58px auto 0;
+      background: var(--card);
+      padding: 44px 34px;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
     }
 
     main p {
-      margin-bottom: 22px;
-      font-size: 1.05rem;
+      margin: 0 0 20px 0;
+      font-size: 1.06rem;
+    }
+
+    .divider {
+      width: 66px;
+      height: 3px;
+      background: var(--accent);
+      margin: 28px auto 30px;
+      border-radius: 2px;
     }
 
     .signature {
-      margin-top: 40px;
-      font-weight: bold;
+      margin-top: 34px;
+      font-weight: 700;
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 34px 18px 46px;
       font-size: 0.9rem;
       color: #666;
     }
 
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-      margin: 30px auto;
-    }
-
     @media (max-width: 600px) {
-      .hero-content h1 {
-        font-size: 1.8rem;
-      }
-
-      main {
-        margin-top: -40px;
-        padding: 35px 20px;
-      }
+      .hero { min-height: 42vh; padding-bottom: 28px; }
+      main { margin-top: -44px; padding: 32px 20px; border-radius: 16px; }
+      main p { font-size: 1.03rem; }
+      .brand img { width: min(420px, 92vw); }
     }
   </style>
 </head>
@@ -107,12 +120,15 @@
 
   <header class="hero">
     <div class="hero-content">
-      <img src="Bakkerij_DSVD_transparant_bg-01-e1584271741727.png" alt="Bakkerij De Smet Van Damme" />
-      <h1>Een warm afscheid</h1>
+      <div class="brand" aria-label="Bakkerij De Smet Van Damme">
+        <img src="Bakkerij_DSVD_transparant_bg-01-e1584271741727.png" alt="Bakkerij De Smet Van Damme" />
+      </div>
     </div>
   </header>
 
   <main>
+    <p><strong>Beste klanten,</strong></p>
+
     <p>
       Misschien heeft u het al vernomen: het heropstarten van onze bakkerij zal helaas niet meer mogelijk zijn.
       De aanhoudende gezondheidsproblemen van bakker Johan blijven ons parten spelen. Op advies van verschillende
@@ -124,7 +140,7 @@
       samen onze bakkerij te hebben gerund, op deze manier eindigt.
     </p>
 
-    <div class="divider"></div>
+    <div class="divider" aria-hidden="true"></div>
 
     <p>
       We hopen van harte een waardige opvolger te vinden, zodat u opnieuw terechtkunt bij een warme bakker in de buurt
